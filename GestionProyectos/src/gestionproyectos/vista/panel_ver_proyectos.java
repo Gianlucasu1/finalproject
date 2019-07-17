@@ -98,9 +98,10 @@ public class panel_ver_proyectos extends javax.swing.JPanel implements Principal
         PrincipalController.getInstance().setTareasSolic(tareasSol);
        
         
-        
         visitador.CambiarTarjetaB("RealizarTareas");
         visitador.cargarInformacion2();
+        JOptionPane.showMessageDialog(null, "No modifique las tareas completadas");
+
           
                 
 // TODO add your handling code here:

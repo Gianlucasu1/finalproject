@@ -42,6 +42,8 @@ public class PrincipalController {
     private int numproysol;
     // Este numero indica el id del proyecto en el cual el usuario desea trabajar
     private int idproysol;
+    // Esta es la tarea la cual el usuario quiere modificar en el momento
+    private Tareas tareaRealizar;
     
     //
     private List<Proyectos> proyectosSolic;
@@ -321,6 +323,40 @@ public class PrincipalController {
 
     public void setIdproysol(int idproysol) {
         this.idproysol = idproysol;
+    }
+
+    public Tareas obtenerTareaRealizar(int sel) {
+
+       Tareas tarea2 = tareasSolic.get(sel);
+
+       return tarea2;
+    }
+
+    public void setTareaRealizar(Tareas tareaRealizar) {
+        this.tareaRealizar = tareaRealizar;
+    }
+
+    public Tareas getTareaRealizar() {
+        return tareaRealizar;
+    }
+
+    public void modificarTareaTrue() {
+    
+    this.tareaRealizar.getIdTarea();
+    
+    this.tareaRealizar.setEstadoTarea(1);
+        try {
+             CTareas.edit(tareaRealizar); 
+             JOptionPane.showMessageDialog(null, "Fue cambiada con exito");
+
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage() );
+        }
+ 
+    
+    
+   
     }
 
     

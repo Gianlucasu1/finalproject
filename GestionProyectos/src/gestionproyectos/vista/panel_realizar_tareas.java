@@ -52,6 +52,11 @@ public class panel_realizar_tareas extends javax.swing.JPanel implements Princip
         jScrollPane1.setViewportView(tabla);
 
         jToggleButton1.setText("Ok");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -77,6 +82,17 @@ public class panel_realizar_tareas extends javax.swing.JPanel implements Princip
                 .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+
+            int sel=tabla.getSelectedRow();
+            Tareas tarea = PrincipalController.getInstance().obtenerTareaRealizar(sel);
+            PrincipalController.getInstance().setTareaRealizar(tarea);
+            
+            visitador.cargarInformacion3();
+            visitador.CambiarTarjetaB("ModificarTarea");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

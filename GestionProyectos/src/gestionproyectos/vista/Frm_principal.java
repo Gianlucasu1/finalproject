@@ -21,6 +21,7 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
         initComponents();
         setLocationRelativeTo(null);
         
+        panel_modificar_tarea1.setVisitador(this);
         panel_realizar_tareas1.setVisitador(this);
         panel_ver_proyectos1.setVisitador(this);
         pnl_buttons_admon2.setVisitador(this);
@@ -56,6 +57,7 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
         panel_ingresar_id1 = new gestionproyectos.vista.panel_ingresar_id();
         panel_ver_proyectos1 = new gestionproyectos.vista.panel_ver_proyectos();
         panel_realizar_tareas1 = new gestionproyectos.vista.panel_realizar_tareas();
+        panel_modificar_tarea1 = new gestionproyectos.vista.panel_modificar_tarea();
         pnl_buttons = new javax.swing.JPanel();
         pnl_buttons_admon2 = new gestionproyectos.vista.pnl_buttons_admon();
         pnl_buttons_empleado1 = new gestionproyectos.vista.pnl_buttons_empleado();
@@ -99,6 +101,7 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
         pnl_principal.add(panel_ingresar_id1, "IngresarID");
         pnl_principal.add(panel_ver_proyectos1, "VerProyectos");
         pnl_principal.add(panel_realizar_tareas1, "RealizarTareas");
+        pnl_principal.add(panel_modificar_tarea1, "ModificarTarea");
 
         pnl_buttons.setLayout(new java.awt.CardLayout());
         pnl_buttons.add(pnl_buttons_admon2, "BotonesAdmon");
@@ -184,6 +187,7 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private gestionproyectos.vista.panel_ingresar_id panel_ingresar_id1;
+    private gestionproyectos.vista.panel_modificar_tarea panel_modificar_tarea1;
     private gestionproyectos.vista.panel_realizar_tareas panel_realizar_tareas1;
     private gestionproyectos.vista.panel_ver_proyectos panel_ver_proyectos1;
     private gestionproyectos.vista.pnl_administrador pnl_administrador1;
@@ -221,7 +225,7 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
 
     @Override
     public void cargarInformacion3() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    panel_modificar_tarea1.cargarInformacion1();
     }
     
     
