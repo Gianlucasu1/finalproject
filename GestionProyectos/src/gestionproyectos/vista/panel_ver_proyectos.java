@@ -10,6 +10,7 @@ import gestionproyectos.controlador.PrincipalController;
 import gestionproyectos.modelo.Empleados;
 import gestionproyectos.modelo.PersonasProyecto;
 import gestionproyectos.modelo.Proyectos;
+import gestionproyectos.modelo.Tareas;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -53,7 +54,7 @@ public class panel_ver_proyectos extends javax.swing.JPanel implements Principal
         ));
         jScrollPane1.setViewportView(tabla);
 
-        jButton1.setText("Ok");
+        jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -69,7 +70,7 @@ public class panel_ver_proyectos extends javax.swing.JPanel implements Principal
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +87,23 @@ public class panel_ver_proyectos extends javax.swing.JPanel implements Principal
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-visitador.CambiarTarjetaB("PanelVacio");        // TODO add your handling code here:
+
+        int sel=tabla.getSelectedRow();
+        
+        PrincipalController.getInstance().setNumProySol(sel);
+        Proyectos proyecto = PrincipalController.getInstance().encontrarProySol();
+        int g = proyecto.getIdProyectos();
+        PrincipalController.getInstance().setIdproysol(g);
+        List <Tareas> tareasSol = PrincipalController.getInstance().cargarTareasProy();
+        PrincipalController.getInstance().setTareasSolic(tareasSol);
+       
+        
+        
+        visitador.CambiarTarjetaB("RealizarTareas");
+        visitador.cargarInformacion2();
+          
+                
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
@@ -135,14 +152,13 @@ visitador.CambiarTarjetaB("PanelVacio");        // TODO add your handling code h
     public void cargarInformacion1(){
     
         try {
-            System.out.println("aca vamos");
             Object O[]=null;
             List<Proyectos> listP = PrincipalController.getInstance().getProyectosSolic();
             
             
             
             for (int i = 0; i < listP.size(); i++) {
-                System.out.println(listP.get(i).getNombreProyecto());
+                
                 modelo2.addRow(O);
                 
                 modelo2.setValueAt(listP.get(i).getIdProyectos(),i, 0);
@@ -171,6 +187,16 @@ visitador.CambiarTarjetaB("PanelVacio");        // TODO add your handling code h
 
     @Override
     public void cargarInformacion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion2() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion3() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

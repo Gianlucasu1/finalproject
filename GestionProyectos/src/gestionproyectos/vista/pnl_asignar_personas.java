@@ -181,4 +181,14 @@ public class pnl_asignar_personas extends javax.swing.JPanel implements Principa
         } catch (Exception e) {
         }
     }
+
+    @Override
+    public void cargarInformacion2() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion3() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

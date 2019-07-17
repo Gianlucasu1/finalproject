@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author gianlucasorem
  */
-public class pnl_crear_empleados extends javax.swing.JPanel {
+public class pnl_crear_empleados extends javax.swing.JPanel implements PrincipalVisitador {
     
     
     EmpleadosJpaController CEmpleados = new EmpleadosJpaController();
@@ -127,4 +127,29 @@ public class pnl_crear_empleados extends javax.swing.JPanel {
     private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
    private PrincipalVisitador visitador;
+
+    @Override
+    public void cambiarTarjeta(String tarjeta) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void CambiarTarjetaB(String tarjeta) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion2() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion3() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

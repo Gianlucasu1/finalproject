@@ -15,4 +15,6 @@ public interface PrincipalVisitador {
     void cambiarTarjeta(String tarjeta);
     void CambiarTarjetaB(String tarjeta);
     void cargarInformacion();
+    void cargarInformacion2();
+    void cargarInformacion3();
 }

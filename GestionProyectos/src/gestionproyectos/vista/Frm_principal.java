@@ -21,12 +21,14 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
         initComponents();
         setLocationRelativeTo(null);
         
+        panel_realizar_tareas1.setVisitador(this);
+        panel_ver_proyectos1.setVisitador(this);
         pnl_buttons_admon2.setVisitador(this);
         pnl_buttons_empleado1.setVisitador(this);
         pnl_crea_tareas1.setVisitador(this);
         pnl_asignar_personas1.setVisitador(this);
         pnl_ver_empleados1.setVisitador(this);
-        pnl_crear_empleados1.setVisitador(this);
+        //pnl_crear_empleados1.setVisitador(this);
         pnl_crear_proyecto2.setVisitador(this);
         pnl_consultar_proyectos1.setVisitador(this);
         pnl_buttons_ingresar1.setVisitador(this);
@@ -53,7 +55,7 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
         pnl_consultar_proyectos1 = new gestionproyectos.vista.pnl_consultar_proyectos();
         panel_ingresar_id1 = new gestionproyectos.vista.panel_ingresar_id();
         panel_ver_proyectos1 = new gestionproyectos.vista.panel_ver_proyectos();
-        pnl_crear_empleados1 = new gestionproyectos.vista.pnl_crear_empleados();
+        panel_realizar_tareas1 = new gestionproyectos.vista.panel_realizar_tareas();
         pnl_buttons = new javax.swing.JPanel();
         pnl_buttons_admon2 = new gestionproyectos.vista.pnl_buttons_admon();
         pnl_buttons_empleado1 = new gestionproyectos.vista.pnl_buttons_empleado();
@@ -96,7 +98,7 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
         pnl_principal.add(pnl_consultar_proyectos1, "ConsultarProyectos");
         pnl_principal.add(panel_ingresar_id1, "IngresarID");
         pnl_principal.add(panel_ver_proyectos1, "VerProyectos");
-        pnl_principal.add(pnl_crear_empleados1, "CrearEmpleados");
+        pnl_principal.add(panel_realizar_tareas1, "RealizarTareas");
 
         pnl_buttons.setLayout(new java.awt.CardLayout());
         pnl_buttons.add(pnl_buttons_admon2, "BotonesAdmon");
@@ -182,6 +184,7 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private gestionproyectos.vista.panel_ingresar_id panel_ingresar_id1;
+    private gestionproyectos.vista.panel_realizar_tareas panel_realizar_tareas1;
     private gestionproyectos.vista.panel_ver_proyectos panel_ver_proyectos1;
     private gestionproyectos.vista.pnl_administrador pnl_administrador1;
     private gestionproyectos.vista.pnl_asignar_personas pnl_asignar_personas1;
@@ -191,7 +194,6 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
     private gestionproyectos.vista.pnl_buttons_ingresar pnl_buttons_ingresar1;
     private gestionproyectos.vista.pnl_consultar_proyectos pnl_consultar_proyectos1;
     private gestionproyectos.vista.pnl_crea_tareas pnl_crea_tareas1;
-    private gestionproyectos.vista.pnl_crear_empleados pnl_crear_empleados1;
     private gestionproyectos.vista.pnl_crear_proyecto pnl_crear_proyecto2;
     private javax.swing.JPanel pnl_principal;
     private gestionproyectos.vista.pnl_ver_empleados pnl_ver_empleados1;
@@ -211,4 +213,16 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
     public void cargarInformacion() {
         panel_ver_proyectos1.cargarInformacion1();
     }
+
+    @Override
+    public void cargarInformacion2() {
+    panel_realizar_tareas1.cargarInformacion1();
+    }
+
+    @Override
+    public void cargarInformacion3() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }

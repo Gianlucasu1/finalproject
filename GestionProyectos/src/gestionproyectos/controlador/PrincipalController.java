@@ -38,6 +38,11 @@ public class PrincipalController {
     private int idPersona;
     // este entero representa el id de la ersona para buscar el proyecto en el que esta
     
+    // este numero representa el indice de la lista de proyectos solicitados en la cual el usuario desea trabajar
+    private int numproysol;
+    // Este numero indica el id del proyecto en el cual el usuario desea trabajar
+    private int idproysol;
+    
     //
     private List<Proyectos> proyectosSolic;
     private List<Tareas> tareasSolic;
@@ -240,11 +245,43 @@ public class PrincipalController {
         }
         
         
-        System.out.println(proyectosSolicitados.size());
-        
     return proyectosSolicitados;
         
     }
+    
+    
+    
+    public List<Tareas>  cargarTareasProy() {
+        List<TareasProyecto> tareasproyecto = CTareasProyectos.findTareasProyectoEntities();
+        List<Tareas> tareas = CTareas.findTareasEntities();
+        List<Tareas> tareasSolicitadas = new ArrayList<Tareas> ();
+        int num;
+        
+        for (int i = 0; i < tareasproyecto.size(); i++) {
+            
+        if(tareasproyecto.get(i).getIdProyecto() == this.idproysol){
+        
+        num = tareasproyecto.get(i).getIdTarea();
+        
+        for (int j = 0; j < tareas.size(); j++) {
+             
+            if(num == tareas.get(j).getIdTarea()) {   
+            tareasSolicitadas.add(tareas.get(j));
+            }
+            
+            
+            }
+            
+        }     
+            
+            
+         }
+        
+        return tareasSolicitadas;
+                        
+    
+    }
+    
 
     public void setProyectosSolic(List<Proyectos> proyectosSolic) {
         this.proyectosSolic = proyectosSolic;
@@ -266,7 +303,30 @@ public class PrincipalController {
     public List<Tareas> cargarTareasEmpleado(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
+    public void setNumProySol(int sel) {
 
+    this.numproysol=sel; 
+        
+    }
+
+    public Proyectos encontrarProySol() {
+    
+    Proyectos proyecto_encontrado=this.proyectosSolic.get(numproysol);
+    return proyecto_encontrado;
+    
+
+    }
+
+    public void setIdproysol(int idproysol) {
+        this.idproysol = idproysol;
+    }
+
+    
+
+    
+    
     
     
 

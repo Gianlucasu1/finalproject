@@ -97,7 +97,9 @@ public class panel_realizar_tareas extends javax.swing.JPanel implements Princip
                 Class[] types = new Class[]{
                     java.lang.String.class,
                     java.lang.String.class,
+                    java.lang.String.class,
                     java.lang.String.class
+
                    
                 };
                 boolean[] canEdit = new boolean[]{
@@ -123,7 +125,7 @@ public class panel_realizar_tareas extends javax.swing.JPanel implements Princip
     public void cargarInformacion1(){
     
         try {
-            System.out.println("aca vamos");
+            System.out.println("aca vamos carg info panel tareas");
             Object O[]=null;
             List<Tareas> listP = PrincipalController.getInstance().getTareasSolic();
             
@@ -141,7 +143,7 @@ public class panel_realizar_tareas extends javax.swing.JPanel implements Princip
                 modelo2.setValueAt(listP.get(i).getIdTarea(),i, 0);
                 modelo2.setValueAt(listP.get(i).getNombreTarea(), i, 1);
                 modelo2.setValueAt(listP.get(i).getDescripcionTarea(), i, 2);
-                modelo2.setValueAt(listP.get(i).getEstadoTarea(), i, 3);
+                
               
                 
             }
@@ -168,6 +170,16 @@ public class panel_realizar_tareas extends javax.swing.JPanel implements Princip
 
     @Override
     public void cargarInformacion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion2() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion3() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -145,10 +145,10 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="gestionproyectos.vista.pnl_crear_empleados" name="pnl_crear_empleados1">
+        <Component class="gestionproyectos.vista.panel_realizar_tareas" name="panel_realizar_tareas1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="CrearEmpleados"/>
+              <CardConstraints cardName="RealizarTareas"/>
             </Constraint>
           </Constraints>
         </Component>

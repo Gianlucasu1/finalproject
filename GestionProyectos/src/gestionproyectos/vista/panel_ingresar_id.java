@@ -105,11 +105,10 @@ public class panel_ingresar_id extends javax.swing.JPanel implements PrincipalVi
                 
                 this.nombre1 = empleados.get(i).getNombre();
                 
-                System.out.println("El id que mando es"+empleados.get(i).getId()); 
-                
+                                
                 this.proy=PrincipalController.getInstance().cargarProyectosEmpleado(empleados.get(i).getId());
     
-                System.out.println(proy.size());
+                
                 PrincipalController.getInstance().setProyectosSolic(this.proy);
                 
                 x= x+1;
@@ -153,6 +152,16 @@ public class panel_ingresar_id extends javax.swing.JPanel implements PrincipalVi
 
     @Override
     public void cargarInformacion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion2() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion3() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
