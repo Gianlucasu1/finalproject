@@ -36,19 +36,11 @@ public class pnl_buttons_empleado extends javax.swing.JPanel {
     private void initComponents() {
 
         VerProyectos = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         VerProyectos.setText("Ver Proyectos");
         VerProyectos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VerProyectosActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Realizar Tareas");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
             }
         });
 
@@ -58,26 +50,17 @@ public class pnl_buttons_empleado extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(VerProyectos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(VerProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(139, 139, 139)
                 .addComponent(VerProyectos)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    visitador.CambiarTarjetaB("RealizarTareas");
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void VerProyectosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerProyectosActionPerformed
         visitador.cargarInformacion();
@@ -90,7 +73,6 @@ public class pnl_buttons_empleado extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton VerProyectos;
-    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
    private PrincipalVisitador visitador;
 }

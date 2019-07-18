@@ -131,7 +131,7 @@ public class pnl_buttons_admon extends javax.swing.JPanel implements PrincipalVi
     }//GEN-LAST:event_VerEmpleadosActionPerformed
 
     private void ControlarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ControlarProyectoActionPerformed
-    visitador.CambiarTarjetaB("ConsultarProyectos"); // TODO add your handling code here:
+    visitador.CambiarTarjetaB("VerTodosProyectos"); // TODO add your handling code here:
     }//GEN-LAST:event_ControlarProyectoActionPerformed
 
 
@@ -167,6 +167,16 @@ public class pnl_buttons_admon extends javax.swing.JPanel implements PrincipalVi
 
     @Override
     public void cargarInformacion3() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion4() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion5() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

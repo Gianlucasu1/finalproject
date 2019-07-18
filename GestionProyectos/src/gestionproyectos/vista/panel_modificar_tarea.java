@@ -33,60 +33,81 @@ public class panel_modificar_tarea extends javax.swing.JPanel implements Princip
     private void initComponents() {
 
         txt_nombre_tarea = new javax.swing.JLabel();
-        txt_descripcion_tarea = new javax.swing.JLabel();
         button_realizada = new javax.swing.JRadioButton();
         button_incompleta = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        descripcion_cambios = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txt_descripcion_tarea = new javax.swing.JTextPane();
 
         txt_nombre_tarea.setText("jLabel1");
-
-        txt_descripcion_tarea.setText("jLabel1");
 
         button_realizada.setText("Realizada");
 
         button_incompleta.setText("Incompleta");
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Enviar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        descripcion_cambios.setColumns(20);
+        descripcion_cambios.setRows(5);
+        jScrollPane1.setViewportView(descripcion_cambios);
+
+        jLabel1.setText("Ingrese una descripcion de lo realizado");
+
+        jScrollPane2.setViewportView(txt_descripcion_tarea);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(button_realizada)
-                                .addGap(67, 67, 67)
-                                .addComponent(button_incompleta))
-                            .addComponent(txt_descripcion_tarea, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_nombre_tarea, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(jButton1)))
-                .addContainerGap(121, Short.MAX_VALUE))
+                        .addComponent(txt_nombre_tarea, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(19, 19, 19)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(85, 85, 85)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(17, 17, 17))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(45, 45, 45)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(button_incompleta)
+                                    .addComponent(button_realizada))))))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(txt_nombre_tarea)
-                .addGap(37, 37, 37)
-                .addComponent(txt_descripcion_tarea, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_realizada)
-                    .addComponent(button_incompleta))
-                .addGap(36, 36, 36)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_nombre_tarea)
+                            .addComponent(jLabel1))
+                        .addGap(51, 51, 51)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(button_realizada)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(button_incompleta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -95,6 +116,11 @@ public class panel_modificar_tarea extends javax.swing.JPanel implements Princip
     if(button_realizada.isSelected() == true){
     PrincipalController.getInstance().modificarTareaTrue();
     }
+    
+    PrincipalController.getInstance().asociarTareaDescripcion(descripcion_cambios.getText());
+    visitador.CambiarTarjetaB("PanelVacio");
+    
+    
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -102,8 +128,12 @@ public class panel_modificar_tarea extends javax.swing.JPanel implements Princip
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton button_incompleta;
     private javax.swing.JRadioButton button_realizada;
+    private javax.swing.JTextArea descripcion_cambios;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel txt_descripcion_tarea;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextPane txt_descripcion_tarea;
     private javax.swing.JLabel txt_nombre_tarea;
     // End of variables declaration//GEN-END:variables
    private PrincipalVisitador visitador;
@@ -111,8 +141,9 @@ public class panel_modificar_tarea extends javax.swing.JPanel implements Princip
 public void cargarInformacion1(){
     
     Tareas tareaInfo = PrincipalController.getInstance().getTareaRealizar();
-    txt_nombre_tarea.setText(tareaInfo.getNombreTarea());
+    txt_nombre_tarea.setText(tareaInfo.getNombreTarea()+":");
     txt_descripcion_tarea.setText(tareaInfo.getDescripcionTarea());
+    
     
     }
 
@@ -143,6 +174,16 @@ public void cargarInformacion1(){
 
     public void setVisitador(PrincipalVisitador visitador) {
         this.visitador = visitador;
+    }
+
+    @Override
+    public void cargarInformacion4() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion5() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -8,6 +8,7 @@
     <class>gestionproyectos.modelo.Tareas</class>
     <class>gestionproyectos.modelo.TareasProyecto</class>
     <class>gestionproyectos.modelo.Proyectos</class>
+    <class>gestionproyectos.modelo.TareaDescripcion</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:8889/GestorProyectos?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="gianlucasu"/>

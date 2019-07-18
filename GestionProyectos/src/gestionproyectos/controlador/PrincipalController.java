@@ -8,6 +8,7 @@ package gestionproyectos.controlador;
 import gestionproyectos.modelo.Empleados;
 import gestionproyectos.modelo.PersonasProyecto;
 import gestionproyectos.modelo.Proyectos;
+import gestionproyectos.modelo.TareaDescripcion;
 import gestionproyectos.modelo.Tareas;
 import gestionproyectos.modelo.TareasProyecto;
 import java.util.ArrayList;
@@ -25,11 +26,13 @@ public class PrincipalController {
     ProyectosJpaController1 CProyectos = new ProyectosJpaController1();
     TareasProyectoJpaController1 CTareasProyectos = new TareasProyectoJpaController1();
     PersonasProyectoJpaController CPersonasProyectos = new PersonasProyectoJpaController();
+    TareaDescripcionJpaController CTareaDescripcion = new TareaDescripcionJpaController();
     private static PrincipalController instance;
     private List <Empleados> empleados;
     private List <Proyectos> proyectos;
     private List <Tareas> tareas;
     private List <TareasProyecto> tareasproyecto;
+    
     // este entero  es el id del proyecto en el cual empezare a subir tareas
     private int idProyecto;
     // este entero es el id de la tarea con al que asociaré el proyecto
@@ -44,10 +47,23 @@ public class PrincipalController {
     private int idproysol;
     // Esta es la tarea la cual el usuario quiere modificar en el momento
     private Tareas tareaRealizar;
+    // Este sera la asociacion entre la tarea a realizar y la descripcion de lo que se ha realizado en el momento
+    private Proyectos proyControlar;
+    
+    // este es el id del proyecto que quiero controlar
+    private int numproycontrolar;
+    
+    // esta lista de tareas spon las tareas que el admon desea controlar
+    
+    private List<Tareas> tareasControl;
+    private Tareas tareaCon;
+    private String descripciontarea;
     
     //
     private List<Proyectos> proyectosSolic;
     private List<Tareas> tareasSolic;
+    
+    
     
     private PrincipalController() {
     }
@@ -358,6 +374,119 @@ public class PrincipalController {
     
    
     }
+
+    public void asociarTareaDescripcion(String text) {
+    
+    int num = this.tareaRealizar.getIdTarea();
+    TareaDescripcion tareaDescripcion= new TareaDescripcion();
+    tareaDescripcion.setIdTarea(num);
+    tareaDescripcion.setDescripcionTrabajo(text);
+    CTareaDescripcion.create(tareaDescripcion);
+    
+    
+
+    }
+
+    public List<Proyectos> getProyectosTodos() {
+    
+    this.proyectos = CProyectos.findProyectosEntities();
+    return proyectos;
+    }
+
+    public void encontrarProyControlar(int num) {
+    
+    this.proyControlar=proyectos.get(num);
+    this.numproycontrolar=proyControlar.getIdProyectos();
+        
+    }
+    
+    public List<Tareas>  cargarTareasControlar() {
+        List<TareasProyecto> tareasproyecto = CTareasProyectos.findTareasProyectoEntities();
+        List<Tareas> tareas = CTareas.findTareasEntities();
+        List<Tareas> tareasControlar = new ArrayList<Tareas> ();
+        int num;
+        
+        for (int i = 0; i < tareasproyecto.size(); i++) {
+            
+        if(tareasproyecto.get(i).getIdProyecto() == this.numproycontrolar){
+        
+        num = tareasproyecto.get(i).getIdTarea();
+        
+        for (int j = 0; j < tareas.size(); j++) {
+             
+            if(num == tareas.get(j).getIdTarea()) {   
+            tareasControlar.add(tareas.get(j));
+            }
+            
+            
+            }
+            
+        }     
+            
+            
+         }
+        this.tareasControl=tareasControlar;
+        
+        return tareasControlar;
+                        
+    
+    }
+
+    public String obtenerNombreProyecto() {
+    String nom=this.proyControlar.getNombreProyecto();
+    return nom;
+    }
+
+    public String obtenerDescripcionProyecto() {
+    String desc = this.proyControlar.getDescripcionProyecto();
+    return desc;
+    }
+
+    
+
+    public void setTareaCon(int num) {
+    
+    this.tareaCon = this.tareasControl.get(num);
+        
+    }
+
+    public void getTareasDescrip() {
+   
+    List <TareaDescripcion> tareadescripcion = CTareaDescripcion.findTareaDescripcionEntities();
+    
+    int num = tareaCon.getIdTarea();
+    
+        for (int i = 0; i < tareadescripcion.size(); i++) {
+            
+            if(num == tareadescripcion.get(i).getIdTarea()){
+            this.descripciontarea = tareadescripcion.get(i).getDescripcionTrabajo();
+            }
+            
+        }
+    
+
+    }
+
+    public String obNomTarea() {
+    String nom = tareaCon.getNombreTarea();
+    return nom;
+    }
+
+    public String obDesTarea() {
+    String des = tareaCon.getDescripcionTarea();
+    return des;
+    }
+
+    public int obEstTarea() {
+    int num = tareaCon.getEstadoTarea();
+        System.out.println(descripciontarea);
+        return num;
+    }
+
+    public String obDescTarComp() {
+String desc = this.descripciontarea;
+return desc;
+        }
 
     
 

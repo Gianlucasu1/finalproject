@@ -7,10 +7,7 @@ package gestionproyectos.vista;
 
 import PatronesDiseño.PrincipalVisitador;
 import gestionproyectos.controlador.PrincipalController;
-import gestionproyectos.modelo.Empleados;
-import gestionproyectos.modelo.PersonasProyecto;
 import gestionproyectos.modelo.Proyectos;
-import gestionproyectos.modelo.Tareas;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -19,16 +16,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author gianlucasorem
  */
-public class panel_ver_proyectos extends javax.swing.JPanel implements PrincipalVisitador {
-    
+public class pnl_ver_proyectos extends javax.swing.JPanel {
 
     /**
-     * Creates new form panel_ver_proyectos
+     * Creates new form pnl_ver_proyectos
      */
-    public panel_ver_proyectos() {
+    public pnl_ver_proyectos() {
         initComponents();
         CrearModelo2();
-        
+        cargarInformacion1();
     }
 
     /**
@@ -42,6 +38,7 @@ public class panel_ver_proyectos extends javax.swing.JPanel implements Principal
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -54,7 +51,9 @@ public class panel_ver_proyectos extends javax.swing.JPanel implements Principal
         ));
         jScrollPane1.setViewportView(tabla);
 
-        jButton1.setText("Ingresar");
+        jLabel1.setText("Seleccione el proyecto que desea controlar:");
+
+        jButton1.setText("Continuar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -66,55 +65,48 @@ public class panel_ver_proyectos extends javax.swing.JPanel implements Principal
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(40, 40, 40)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(jButton1)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        int sel=tabla.getSelectedRow();
-        
-        PrincipalController.getInstance().setNumProySol(sel);
-        Proyectos proyecto = PrincipalController.getInstance().encontrarProySol();
-        int g = proyecto.getIdProyectos();
-        PrincipalController.getInstance().setIdproysol(g);
-        List <Tareas> tareasSol = PrincipalController.getInstance().cargarTareasProy();
-        PrincipalController.getInstance().setTareasSolic(tareasSol);
-       
-        
-        visitador.CambiarTarjetaB("RealizarTareas");
-        visitador.cargarInformacion2();
-        JOptionPane.showMessageDialog(null, "No modifique las tareas completadas");
-
-          
-                
+   int num = tabla.getSelectedRow();
+   PrincipalController.getInstance().encontrarProyControlar(num);
+   
+   
+   visitador.cargarInformacion4();
+   visitador.CambiarTarjetaB("TareasControlar");
+   
+      
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
-    private PrincipalVisitador visitador;
+   private PrincipalVisitador visitador;
 
     DefaultTableModel modelo2;
 
@@ -149,13 +141,15 @@ public class panel_ver_proyectos extends javax.swing.JPanel implements Principal
             JOptionPane.showMessageDialog(null, e.toString() + "error2");
         }
     }
-    
+    public void setVisitador(PrincipalVisitador visitador) {
+        this.visitador = visitador;
+    }
     
     public void cargarInformacion1(){
     
         try {
             Object O[]=null;
-            List<Proyectos> listP = PrincipalController.getInstance().getProyectosSolic();
+            List<Proyectos> listP = PrincipalController.getInstance().getProyectosTodos();
             
             
             
@@ -173,42 +167,5 @@ public class panel_ver_proyectos extends javax.swing.JPanel implements Principal
         } catch (Exception e) {
         }
     }
-    public void setVisitador(PrincipalVisitador visitador) {
-    this.visitador=visitador;
-    }
-    
-    @Override
-    public void cambiarTarjeta(String tarjeta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public void CambiarTarjetaB(String tarjeta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void cargarInformacion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void cargarInformacion2() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void cargarInformacion3() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void cargarInformacion4() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void cargarInformacion5() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

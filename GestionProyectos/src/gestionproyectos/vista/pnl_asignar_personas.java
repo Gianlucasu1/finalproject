@@ -44,7 +44,7 @@ public class pnl_asignar_personas extends javax.swing.JPanel implements Principa
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
 
-        jButton1.setText("Terminar Proyeto");
+        jButton1.setText("Asignar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -76,7 +76,7 @@ public class pnl_asignar_personas extends javax.swing.JPanel implements Principa
                         .addGap(95, 95, 95)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(241, 241, 241)
+                        .addGap(265, 265, 265)
                         .addComponent(jButton1)))
                 .addContainerGap(201, Short.MAX_VALUE))
         );
@@ -102,6 +102,7 @@ public class pnl_asignar_personas extends javax.swing.JPanel implements Principa
             PrincipalController.getInstance().crearPersonaProyecto();
         }
     
+    JOptionPane.showMessageDialog(null, "Su proyecto se ha creado con exito.");
     visitador.CambiarTarjetaB("PanelVacio");
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -189,6 +190,16 @@ public class pnl_asignar_personas extends javax.swing.JPanel implements Principa
 
     @Override
     public void cargarInformacion3() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion4() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarInformacion5() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

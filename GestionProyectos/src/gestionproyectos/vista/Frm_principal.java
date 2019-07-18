@@ -22,6 +22,10 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
         setLocationRelativeTo(null);
         
         panel_modificar_tarea1.setVisitador(this);
+        pnl_ver_tarea_controlada1.setVisitador(this);
+        pnl_tareas_controlar1.setVisitador(this);
+        pnl_ver_proyectos1.setVisitador(this);
+        panel_modificar_tarea1.setVisitador(this);
         panel_realizar_tareas1.setVisitador(this);
         panel_ver_proyectos1.setVisitador(this);
         pnl_buttons_admon2.setVisitador(this);
@@ -29,7 +33,7 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
         pnl_crea_tareas1.setVisitador(this);
         pnl_asignar_personas1.setVisitador(this);
         pnl_ver_empleados1.setVisitador(this);
-        //pnl_crear_empleados1.setVisitador(this);
+        pnl_crear_empleados1.setVisitador(this);
         pnl_crear_proyecto2.setVisitador(this);
         pnl_consultar_proyectos1.setVisitador(this);
         pnl_buttons_ingresar1.setVisitador(this);
@@ -58,6 +62,10 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
         panel_ver_proyectos1 = new gestionproyectos.vista.panel_ver_proyectos();
         panel_realizar_tareas1 = new gestionproyectos.vista.panel_realizar_tareas();
         panel_modificar_tarea1 = new gestionproyectos.vista.panel_modificar_tarea();
+        pnl_ver_proyectos1 = new gestionproyectos.vista.pnl_ver_proyectos();
+        pnl_tareas_controlar1 = new gestionproyectos.vista.pnl_tareas_controlar();
+        pnl_ver_tarea_controlada1 = new gestionproyectos.vista.pnl_ver_tarea_controlada();
+        pnl_crear_empleados1 = new gestionproyectos.vista.pnl_crear_empleados();
         pnl_buttons = new javax.swing.JPanel();
         pnl_buttons_admon2 = new gestionproyectos.vista.pnl_buttons_admon();
         pnl_buttons_empleado1 = new gestionproyectos.vista.pnl_buttons_empleado();
@@ -102,6 +110,10 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
         pnl_principal.add(panel_ver_proyectos1, "VerProyectos");
         pnl_principal.add(panel_realizar_tareas1, "RealizarTareas");
         pnl_principal.add(panel_modificar_tarea1, "ModificarTarea");
+        pnl_principal.add(pnl_ver_proyectos1, "VerTodosProyectos");
+        pnl_principal.add(pnl_tareas_controlar1, "TareasControlar");
+        pnl_principal.add(pnl_ver_tarea_controlada1, "TareaControlada");
+        pnl_principal.add(pnl_crear_empleados1, "CrearEmpleados");
 
         pnl_buttons.setLayout(new java.awt.CardLayout());
         pnl_buttons.add(pnl_buttons_admon2, "BotonesAdmon");
@@ -141,11 +153,13 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    cambiarTarjeta("BotonesIngresar");
+        CambiarTarjetaB("PanelVacio");
+        cambiarTarjeta("BotonesIngresar");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    cambiarTarjeta("BotonesAdmon");
+        CambiarTarjetaB("PanelVacio");
+        cambiarTarjeta("BotonesAdmon");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -198,9 +212,13 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
     private gestionproyectos.vista.pnl_buttons_ingresar pnl_buttons_ingresar1;
     private gestionproyectos.vista.pnl_consultar_proyectos pnl_consultar_proyectos1;
     private gestionproyectos.vista.pnl_crea_tareas pnl_crea_tareas1;
+    private gestionproyectos.vista.pnl_crear_empleados pnl_crear_empleados1;
     private gestionproyectos.vista.pnl_crear_proyecto pnl_crear_proyecto2;
     private javax.swing.JPanel pnl_principal;
+    private gestionproyectos.vista.pnl_tareas_controlar pnl_tareas_controlar1;
     private gestionproyectos.vista.pnl_ver_empleados pnl_ver_empleados1;
+    private gestionproyectos.vista.pnl_ver_proyectos pnl_ver_proyectos1;
+    private gestionproyectos.vista.pnl_ver_tarea_controlada pnl_ver_tarea_controlada1;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -226,6 +244,16 @@ public class Frm_principal extends javax.swing.JFrame implements PatronesDiseño
     @Override
     public void cargarInformacion3() {
     panel_modificar_tarea1.cargarInformacion1();
+    }
+
+    @Override
+    public void cargarInformacion4() {
+    pnl_tareas_controlar1.cargarInformacion1();
+    }
+
+    @Override
+    public void cargarInformacion5() {
+    pnl_ver_tarea_controlada1.cargarInformacion1();
     }
     
     

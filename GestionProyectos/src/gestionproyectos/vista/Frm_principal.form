@@ -159,6 +159,34 @@
             </Constraint>
           </Constraints>
         </Component>
+        <Component class="gestionproyectos.vista.pnl_ver_proyectos" name="pnl_ver_proyectos1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="VerTodosProyectos"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="gestionproyectos.vista.pnl_tareas_controlar" name="pnl_tareas_controlar1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="TareasControlar"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="gestionproyectos.vista.pnl_ver_tarea_controlada" name="pnl_ver_tarea_controlada1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="TareaControlada"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="gestionproyectos.vista.pnl_crear_empleados" name="pnl_crear_empleados1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="CrearEmpleados"/>
+            </Constraint>
+          </Constraints>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="pnl_buttons">

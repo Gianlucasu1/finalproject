@@ -17,4 +17,6 @@ public interface PrincipalVisitador {
     void cargarInformacion();
     void cargarInformacion2();
     void cargarInformacion3();
+    void cargarInformacion4();
+    void cargarInformacion5();
 }
